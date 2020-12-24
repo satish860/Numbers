@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: numberapi
+spec:
+  selector:
+    matchLabels:
+      app: numberapi
+  template:
+    metadata:
+      labels:
+        app: numberapi
+        version: v1
+    spec:
+      containers:
+      - name: numberapi
+        image: satish860/numberapi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

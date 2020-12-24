@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: numberapi
+spec:
+  selector:
+    app: numberapi
+  ports:
+  - port: 8000
+    targetPort: 80

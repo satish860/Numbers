@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: numberweb
+spec:
+  selector:
+    matchLabels:
+      app: numberweb
+  template:
+    metadata:
+      labels:
+        app: numberweb
+    spec:
+      containers:
+      - name: numberweb
+        image: satish860/numberweb
+        env:
+          - name: NumbersAPI
+            value: "http://numberapi:8000/api/numbers"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
